@@ -1,0 +1,125 @@
+/* Gift Container */
+.gift-container {
+  text-align: center;
+  margin-top: 70px;
+}
+
+/* Gift Box */
+.gift-box {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Box body */
+.gift-box .box {
+  width: 100%;
+  height: 100%;
+  background: #ff80ab; /* pink */
+  border: 3px solid #e91e63;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+/* Lid */
+.gift-box .lid {
+  position: absolute;
+  top: -35px;
+  left: -5px;
+  width: 150px;
+  height: 45px;
+  background: #e91e63;
+  border: 3px solid #c2185b;
+  border-radius: 8px;
+  transition: all 0.6s ease;
+  z-index: 2;
+}
+
+/* Ribbons */
+.gift-box .box::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background: #c2185b;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gift-box .box::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: #c2185b;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Bow */
+.gift-box .lid::before,
+.gift-box .lid::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: #ff4081;
+  border-radius: 50%;
+  top: -20px;
+}
+
+.gift-box .lid::before {
+  left: 30px;
+}
+
+.gift-box .lid::after {
+  right: 30px;
+}
+
+/* Lid Open Animation */
+.gift-box.open .lid {
+  transform: rotate(-25deg) translateY(-80px);
+  opacity: 0.9;
+}
+
+/* Love Letter */
+.love-letter {
+  margin-top: 30px;
+  width: 300px;
+  background: #fff0f5;
+  border: 2px solid #e91e63;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: slideUp 1s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.gift-text {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e91e63;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}

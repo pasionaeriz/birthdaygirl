@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Love 🎂💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: linear-gradient(135deg, #ffd6eb, #ffe6f2);
+      font-family: 'Quicksand', sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Intro Screen */
+    #intro {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.25);
+      width: 90%;
+      max-width: 420px;
+      margin: 120px auto;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    #intro h2 { color: #ff3e96; margin-bottom: 15px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #ff82ac;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .btn:hover { background: #ff5f9a; transform: scale(1.05); }
+
+    /* Title */
+    h1 { font-size: 2.8em; margin-top: 20px; color: #ff3e96; animation: fadeInDown 1s ease-in-out; }
+    h2 { font-weight: normal; font-size: 1.3em; margin-bottom: 30px; animation: fadeInDown 1.5s ease-in-out; }
+
+    /* Heart */
+    .heart { font-size: 3em; animation: pulse 1.2s infinite; color: #ff3e96; }
+
+    /* Typewriter Greeting */
+    .typewriter {
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 800px;
+      white-space: pre-wrap;
+      border-right: 2px solid #ff3e96;
+      overflow: hidden;
+      animation: typing 6s steps(40, end), blink 0.7s step-end infinite;
+    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    /* Message Bubble */
+    .message {
+      background: rgba(255,255,255,0.4);
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 1.05em;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 20px rgba(255, 105, 180, 0.15);
+    }
+
+    /* Polaroid Gallery */
+    .photo-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+    .polaroid {
+      background: #fff;
+      padding: 10px 10px 25px 10px;
+      border-radius: 6px;
+      width: 220px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .polaroid img { width: 100%; border-radius: 3px; display: block; }
+    .polaroid p { margin-top: 8px; font-size: 0.95em; color: #555; }
+    .polaroid:nth-child(2n) { transform: rotate(2deg); }
+    .polaroid:nth-child(3n) { transform: rotate(-4deg); }
+    .polaroid:hover {
+      transform: scale(1.05) rotate(0deg);
+      box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+    }
+
+    /* 🎁 Gift Box */
+    .gift-container { margin: 60px auto; }
+    .gift-box {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .gift-box .box {
+      width: 100%;
+      height: 100%;
+      background: #ff82ac;
+      border: 3px solid #ff3e96;
+      border-radius: 10px;
+    }
+    .gift-box .lid {
+      width: 100%;
+      height: 40px;
+      background: #ff3e96;
+      position: absolute;
+      top: -40px;
+      left: 0;
+      border-radius: 10px 10px 0 0;
+      transition: transform 0.6s ease;
+    }
+    .gift-box.open .lid {
+      transform: rotateX(120deg);
+      transform-origin: bottom;
+    }
+
+    /* ✨ Gift Text */
+    .gift-text {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #e91e63;
+      animation: pulse 1.5s infinite;
+      cursor: pointer;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Love Letter */
+    .love-letter {
+      margin: 30px auto;
+      width: 70%;
+      max-width: 600px;
+      background: #fff8dc;
+      border: 2px solid #e4c29e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      color: #4a2c2a;
+      text-align: left;
+      display: none;
+      white-space: pre-wrap;
+    }
+
+    /* Music */
+    #music-player { display: none; }
+
+    /* Animations */
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Final message */
+    .final-message {
+      margin: 40px auto;
+      font-size: 1.15em;
+      max-width: 650px;
+      color: #444;
+      animation: fadeInDown 2s ease-in-out;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .message { font-size: 1em; }
+      .polaroid { width: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTRO SCREEN -->
+  <div id="intro">
+    <h2>Happy Birthday, My lovee</h2>
+    <p>ETO ULIT TAYO SA WEBSITE KASI HINDI KITA KASAMA RN</p>
+    <a class="btn" onclick="showSurprise()">Open mo na lang love hehe</a>
+  </div>
+
+  <!-- MUSIC -->
+  <div id="music-player">
+    <audio id="bg-music" autoplay loop>
+      <source src="birthday_song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main-content" style="display:none;">
+    <div class="heart"></div>
+    <h1>Happy Birthday, MY LOVEEE </h1>
+    <h2></h2>
+
+    <!-- Polaroid Photo Gallery -->
+<div class="photo-gallery">
+  <div class="polaroid"><img src="photo1.jpg"><p></p></div>
+  <div class="polaroid"><img src="photo2.jpg"><p></p></div>
+  <div class="polaroid"><img src="photo3.jpg"><p></p></div>
+  <div class="polaroid"><img src="photo4.jpg"><p></p></div>
+  <div class="polaroid"><img src="photo5.jpg"><p></p></div>
+  <div class="polaroid"><img src="photo6.jpg"><p></p></div>
+  <div class="polaroid"><img src="photo7.jpg"><p></p></div>
+</div>
+
+
+    <!-- 🎁 Gift with Love Letter -->
+    <div class="gift-container">
+      <div class="gift-box" id="giftBox">
+        <div class="lid"></div>
+        <div class="box"></div>
+      </div>
+      <p class="gift-text">GIFT Q TO SA'YO</p> <!-- NEW TEXT ADDED -->
+      <div class="love-letter" id="loveLetter"></div>
+    </div>
+
+    <div class="final-message">
+      
+    </div>
+  </div>
+
+  <script>
+    function showSurprise() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+      document.getElementById("music-player").style.display = "block";
+      document.getElementById("bg-music").play();
+    }
+
+    // Gift box reveal
+    const giftBox = document.getElementById("giftBox");
+    const loveLetter = document.getElementById("loveLetter");
+    const giftText = document.querySelector(".gift-text");
+    const letterText = `HAPPY BIRTHDAYYYYY, MY LOVEE
+
+Happy birthday love, andito ako ulit sa pag gawa ng website HAHAHHAHAHAHAHA pero soonest I'll surprise you more than this okii? I love you a lot love.
+Eto muna surprise ko kasi bukas pa yung actual hehe pero hindi mo naman alam kung ano surprise ko kaya kaya okay lang. 
+Happy Birthday ulit lovee. You know that Im always here sa tabi mo kung kailangan mo. Andito ako palagi para making sa mga kwento mo okii? 
+I love you endlessly lovee kooooo. Hindi na to mahaba kasi nasabi ko na lahat nung Girlfriends day hehehehe  
+
+Happy Birthday, my love. I love you always!`;
+
+    let i = 0;
+    giftBox.addEventListener("click", () => {
+      giftBox.classList.add("open");
+      loveLetter.style.display = "block";
+      giftText.style.display = "none"; // hide text after opening
+      typeWriter();
+    });
+
+    function typeWriter() {
+      if (i < letterText.length) {
+        loveLetter.innerHTML += letterText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+  </script>
+</body>
+</html>
